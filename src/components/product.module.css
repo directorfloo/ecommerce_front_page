@@ -1,0 +1,239 @@
+body {
+  background-color: white;
+}
+
+.navBar{
+position: fixed;
+z-index: 100;
+width: 100%;
+margin-top: -40px;
+
+}
+
+
+
+
+.headLine {
+  
+  font-size: 32px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  margin: 40px 0;
+
+ padding: 60px 10px 60px 10px;
+  border: 1px solid #ddd;
+  background-color: #0a0808;
+   z-index: 1000;
+
+  
+}
+
+
+.image {
+  width: 200px;
+  margin-top: -170px;
+  object-fit: cover; 
+  margin-left: 10px; 
+  display: flex;  
+}
+
+.searchContainer{
+  display: flex;
+  gap: 30px;
+  height: 70px;
+  margin-left: 300px;
+  margin-top: -95px;
+  position: relative;
+   
+  
+}
+.icon{
+  color:black;
+  margin-left: 10px;
+  margin-top: 22px;
+  position: absolute; 
+  font-size: 25px;
+ 
+ 
+
+  
+}
+.search {
+  width: 650px;
+  background-color: white;
+  border: 10px #0a0808;
+  border-radius: 10px;
+  color: #0a0808;
+  caret-shape: 200px;
+  caret-color: black;
+padding-left: 50px;
+ font-size: 25px;
+ font-weight: bold;
+  
+
+ 
+
+  
+ 
+}
+.search::placeholder {
+  color: black;
+  opacity: 1;
+  font-weight: bold;
+  font-size: 25px;
+ 
+}
+
+.searchbtn{
+  width: 150px;
+  background-color: white;
+  font-size: 25px;
+  color: black;
+ cursor: pointer;
+ transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+}
+.searchbtn:hover {
+ transform: translateY(-2px);
+  box-shadow: 0 8px 20px orangered;
+}
+.authLinks{
+
+  margin-top: -60px;
+  margin-left: 1300px;
+  gap: 40px;
+  display: flex;
+  font-weight: bold;
+  position: ;
+ 
+}
+.signUpLink{
+  position: absolute;
+    height: 60px;
+  width: 90px;
+  border: white solid 3px;
+  background-color: white (255, 68, 0, 0.884);
+  padding: 10px 10px 5px 15px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.signUpLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px orangered;
+}
+.signInButton{
+  position: absolute;
+    height: 60px;
+  width: 90px;
+  border: white solid 3px;
+  background-color: white (255, 68, 0, 0.884);
+  padding: 10px 10px 5px 15px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-left: 120px;
+}
+
+.signInButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px orangered;
+}
+
+
+
+
+
+
+.cartLink {
+   position: absolute;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 320px;
+  font-size: 25px;
+
+  padding: 10px 16px;
+  border-radius: 6px;
+
+  text-decoration: none;
+  font-weight: bold;
+  color: #2807e0;
+
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.cartLink:hover {
+  box-shadow: 20px 8px 20px orangered;
+  transform: translateY(-2px);
+}
+
+.cartIcon {
+   position: absolute;
+  font-size: 25px;
+  margin-left: -30px;
+}
+
+
+
+ 
+/* ✅ PRODUCT GRID */
+.productContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 80px;
+  align-items: center;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin: 40px;
+  padding: 0 20px;
+  border: 1px solid #0a0808 ;
+  margin-top: 200px;
+
+}
+
+/* REMOVE TINY TEXT ISSUE */
+.price {
+  font-size: 20px;
+}
+
+.inputs {
+  width: 400px;
+  outline: none;
+}
+
+.generalProduct {
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+   align-items: center;
+ 
+}
+
+.generalProduct:hover {
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+/* OPTIONAL BUTTON */
+.buyBtn {
+  margin-top: 10px;
+  padding: 8px 14px;
+  border: none;
+  background: black;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
