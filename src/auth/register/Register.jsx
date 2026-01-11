@@ -1,92 +1,140 @@
-import { useEffect, useState } from "react"
-import style from "./Register.module.css"
+import { useEffect, useState } from "react";
+import style from "./Register.module.css";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF } from "react-icons/fa";
-const Register = ()=> { 
-          
-    const[firstName, setUserName] = useState("");
-    
-     
-    const[email, setEmail] = useState("");
-    const[message, setMessage] = useState("");
-    
+// import { useRegister } from "../hooks/useRegister"; // uncomment if you have this hook
 
- useEffect (() => {
-        if (message) alert(message);
-       }, [message]);
+const Register = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
+  useEffect(() => {
+    if (message) alert(message);
+  }, [message]);
 
-  const handleSubmit= async (e)=> {
-        e.preventDefault() //dont reload my page
-    const userDetails ={ firstName:firstName,lastName:lastName,email:email,}
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    try{
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
 
-        const {name, message} = await useRegister(userDetails)
-        setMessage(message)
-        localStorage.setItem("name", name)
-        }catch (error){
-            setError("Registration unsuccessful.please try again")
-        }
-        
-}
+    const userDetails = {
+      firstName,
+      lastName,
+      email,
+      password,
+    };
 
-    return(
-        
-        <form onSubmit={handleSubmit} className={style.registerForm}>
-          
-                 <section className={style.image}>
-                <img src="/images/mama.jpg" alt="headline" />
-                 </section>
+    try {
+      // Example API call (replace with your real one)
+      /*
+      const { name, message } = await useRegister(userDetails);
+      setMessage(message);
+      localStorage.setItem("name", name);
+      */
 
+      console.log("User registered:", userDetails);
+      setMessage("Registration successful!");
+      setError("");
+    } catch (err) {
+      setError("Registration unsuccessful. Please try again.");
+    }
+  };
 
-        <h1 className={style.welcome}>WELCOME TO MAMA SHOPPING STORE</h1>
-        <p className={style.enter}>Fill in the required details to sign up.</p>
-                             
-        <div className={style.registerSignUp}>
-        <div > 
-            <input
-             id="UserName" 
-             onChange={(e) => setUserName(e.target.value) }
-             className={style.username} type="text" placeholder="Username" />
+  return (
+    <form onSubmit={handleSubmit} className={style.registerForm}>
+      <section className={style.image}>
+        <img src="/images/mama.jpg" alt="headline" />
+      </section>
+
+      <h1 className={style.welcome}>WELCOME TO MAMA SHOPPING STORE</h1>
+      <p className={style.enter}>Fill in the required details to sign up.</p>
+
+      {error && <p className={style.error}>{error}</p>}
+
+      <div className={style.registerSignUp}>
+        <div>
+          <input
+            className={style.username}
+            type="text"
+            placeholder="First Name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
         </div>
- 
-         <div>
-           
-            <input id="lastName" onChange={(e) => setEmail(e.target.value)} className={style.email}  type="text" placeholder="Email" />
-         </div>
-         <div >
-            
-            <input  className={style.password}  type="text" placeholder="Password" />
-         </div>
-         <div className={style.labelInput}>
-            
-            <input className={style.confirmedpassword} type="confirmedPassword" placeholder="Confirmed Password" />
 
-         </div>
+        <div>
+          <input
+            className={style.username}
+            type="text"
+            placeholder="Last Name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+          />
+        </div>
 
-              <div>
-                <button  className={style.signUpButton}  type ="submit">Sign up</button>
-              </div>
-              <div className={style.socialButton} >
-               <button className={style.googleButton}>
-              <FcGoogle className={style.googleIcon} />
-                Continue with Google
-                 </button>
-                
-              <button className={style.facebookButton}>
-              <FaFacebookF className={style.facebookIcon} />
-                Continue with Facebook
-                 </button>
+        <div>
+          <input
+            className={style.email}
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
 
+        <div>
+          <input
+            className={style.password}
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
 
-               </div>
+        <div>
+          <input
+            className={style.confirmedpassword}
+            type="password"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+        </div>
 
+        <div>
+          <button className={style.signUpButton} type="submit">
+            Sign up
+          </button>
+        </div>
 
-             </div>
-         
-        </form>
-    )
-}
+        <div className={style.socialButton}>
+          <button type="button" className={style.googleButton}>
+            <FcGoogle className={style.googleIcon} />
+            Continue with Google
+          </button>
+
+          <button type="button" className={style.facebookButton}>
+            <FaFacebookF className={style.facebookIcon} />
+            Continue with Facebook
+          </button>
+        </div>
+      </div>
+    </form>
+  );
+};
+
 export default Register;
-
