@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router";
 import { useGetAllProductsQuery } from "../apis/productApi";
-import styles from "./product.module.css";
+import styles from "./Product.module.css";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/cartSlice";
